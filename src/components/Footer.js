@@ -3,7 +3,7 @@ import React from 'react';
 const Footer = () => {
   return (
     <footer>
-      <p>Enjoy your day</p>
+      <p>© Weather App</p>
     </footer>
   );
 };

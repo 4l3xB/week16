@@ -1,25 +1,24 @@
 import React, { useState } from 'react';
 
-const Search = ({ fetchWeatherData }) => {
+const Search = ({ addCity }) => {
   const [city, setCity] = useState('');
 
-  const handleChange = (e) => {
-    setCity(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
+  const handleSearch = (e) => {
     e.preventDefault();
-    fetchWeatherData(city);
+    addCity(city);
     setCity('');
   };
 
   return (
-    <div className="search">
-      <form onSubmit={handleSubmit}>
-        <input type="text" placeholder="Enter city..." value={city} onChange={handleChange} />
-        <button type="submit">Search</button>
-      </form>
-    </div>
+    <form onSubmit={handleSearch}>
+      <input
+        type="text"
+        value={city}
+        onChange={(e) => setCity(e.target.value)}
+        placeholder="Enter city name"
+      />
+      <button type="submit">Search</button>
+    </form>
   );
 };
 
